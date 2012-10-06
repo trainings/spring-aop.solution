@@ -25,16 +25,6 @@ public class SellerInitializer {
     /** The seller names. */
     @Resource(name = "sellersMap")
     private Map<Long, String> sellerNames = Collections.emptyMap();
-    
-    /**
-     * Instantiates a new seller initializer.
-     *
-     * @param sellerService the seller service
-     */
-//    public SellerInitializer(Map<Long, String> sellerNames) {
-//        super();
-//        this.sellerNames = sellerNames;
-//    }
 
     /**
      * Inits the sellers.
