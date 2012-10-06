@@ -1,2 +1,2 @@
-spring-context-annotation.lab
-=============================
+spring-context-annotation.solution
+==================================
