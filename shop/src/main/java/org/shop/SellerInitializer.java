@@ -5,18 +5,25 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import javax.annotation.Resource;
+
 import org.shop.api.SellerService;
 import org.shop.data.Seller;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * The Seller Initializer util class.
  */
+@Component
 public class SellerInitializer {
 
     /** The seller service. */
+    @Autowired
     private SellerService sellerService;
     
     /** The seller names. */
+    @Resource(name = "sellersMap")
     private Map<Long, String> sellerNames = Collections.emptyMap();
     
     /**
@@ -24,14 +31,10 @@ public class SellerInitializer {
      *
      * @param sellerService the seller service
      */
-    public SellerInitializer(Map<Long, String> sellerNames) {
-        super();
-        this.sellerNames = sellerNames;
-    }
-    
-    public void setSellerService(SellerService sellerService) {
-        this.sellerService = sellerService;
-    }
+//    public SellerInitializer(Map<Long, String> sellerNames) {
+//        super();
+//        this.sellerNames = sellerNames;
+//    }
 
     /**
      * Inits the sellers.

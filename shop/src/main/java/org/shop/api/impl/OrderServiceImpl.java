@@ -11,21 +11,18 @@ import org.shop.data.Order;
 import org.shop.data.Proposal;
 import org.shop.data.User;
 import org.shop.repository.OrderRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class OrderServiceImpl implements OrderService {
 
+    @Autowired
     private OrderRepository orderRepository;
     
+    @Autowired
     private ItemService itemService;
     
-    public void setOrderRepository(OrderRepository orderRepository) {
-        this.orderRepository = orderRepository;
-    }
-
-    public void setItemService(ItemService itemService) {
-        this.itemService = itemService;
-    }
-
     @Override
     public Long createOrder(User user, Item... items) {
         //create and save order object

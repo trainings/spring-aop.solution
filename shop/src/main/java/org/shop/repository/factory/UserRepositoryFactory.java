@@ -6,9 +6,13 @@ import java.util.List;
 import org.shop.data.User;
 import org.shop.repository.UserRepository;
 import org.shop.repository.map.AbstractMapRepository;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
+@Component
 public final class UserRepositoryFactory {
     
+    @Bean
     public UserRepository createUserRepository() {
         return new UserMapRepository();
     }
