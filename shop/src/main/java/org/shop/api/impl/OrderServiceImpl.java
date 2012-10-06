@@ -22,7 +22,7 @@ public class OrderServiceImpl implements OrderService {
     
     @Autowired
     private ItemService itemService;
-    
+
     @Override
     public Long createOrder(User user, Item... items) {
         //create and save order object
