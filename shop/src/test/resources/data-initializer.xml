@@ -8,5 +8,5 @@
 
 	<context:annotation-config/>
 	
-	<context:component-scan base-package="org.shop"/>	
+	<context:component-scan base-package="org.shop.initializer"/>	
 </beans>

@@ -1,4 +1,4 @@
-package org.shop;
+package org.shop.initializer;
 
 import java.util.Collections;
 import java.util.LinkedList;
