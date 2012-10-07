@@ -1,2 +1,2 @@
-spring-test.lab
-===============
+spring-test.solution
+====================
