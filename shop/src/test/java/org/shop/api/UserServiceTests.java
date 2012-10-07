@@ -1,34 +1,64 @@
 package org.shop.api;
 
-import static org.junit.Assert.*;
+import junit.framework.Assert;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.shop.data.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.annotation.DirtiesContext.ClassMode;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration({"classpath:context.xml", "classpath:listeners.xml"})
+@DirtiesContext(classMode = ClassMode.AFTER_EACH_TEST_METHOD)
 public class UserServiceTests {
 
+    @Autowired
     UserService userService;
     
     @Test
     public void testRegisterUser() {
-        fail("Not yet implemented");
-        //userService.registerUser(user);
+        User user = new User();
+        user.setUsername("Ivan Ivanov");
+        
+        Assert.assertTrue(userService.registerUser(user) > 0);
     }
 
     @Test
     public void testGetUserById() {
-        fail("Not yet implemented");
-        //userService.getUserById(id);
+        User user = new User();
+        user.setUsername("Ivan Ivanov");
+        
+        Long userId = userService.registerUser(user);
+        
+        User savedUser = userService.getUserById(userId);
+        
+        Assert.assertNotNull(savedUser);
+        Assert.assertEquals("Ivan Ivanov", savedUser.getUsername());
     }
 
     @Test
     public void testUpdateUserProfile() {
-        fail("Not yet implemented");
-        //userService.updateUserProfile(user);
+        User user = new User();
+        user.setUsername("Ivan Ivanov");
+        
+        Long userId = userService.registerUser(user);
+        
+        user = userService.getUserById(userId);
+        user.setUsername("Ivan Petrov");
+        
+        userService.updateUserProfile(user);
+        
+        user = userService.getUserById(userId);
+        
+        Assert.assertEquals("Ivan Petrov", user.getUsername());
     }
 
     @Test
     public void testGetUsers() {
-        fail("Not yet implemented");
-        //userService.getUsers();
+        Assert.assertTrue(userService.getUsers().size() == 0);
     }
 }
