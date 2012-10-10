@@ -16,15 +16,11 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class OrderMapRepository extends AbstractMapRepository<Order> implements OrderRepository {
 
-    /**
-     * Instantiates a new order map based repository.
-     *
-     * @param initialSequence the initial sequence
-     */
-    public OrderMapRepository(@Value("repository.order.pk") long initialSequence) {
-        super(initialSequence);
+    @Value("${repository.order.pk}")
+    public void setSequence(long sequence) {
+        super.sequence = sequence;
     }
-
+    
     /* (non-Javadoc)
      * @see org.shop.repository.OrderRepository#getOrderById(java.lang.Long)
      */
