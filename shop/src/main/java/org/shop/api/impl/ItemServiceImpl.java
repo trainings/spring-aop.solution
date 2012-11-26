@@ -8,7 +8,7 @@ import org.shop.repository.ItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service
+@Service("itemService")
 public class ItemServiceImpl implements ItemService {
     
     /** The item repository. */
