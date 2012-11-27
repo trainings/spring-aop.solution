@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements UserService {
 
-    @Autowired
     private UserRepository repository;
 
     /* (non-Javadoc)
@@ -44,5 +43,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getUsers() {
         return repository.getUsers();
+    }
+    
+    @Autowired
+    public void populate(UserRepository repository) {
+        this.repository = repository;
     }
 }

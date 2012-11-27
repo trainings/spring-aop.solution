@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.shop.api.ItemService;
 import org.shop.api.OrderService;
 import org.shop.data.Item;
@@ -11,16 +13,15 @@ import org.shop.data.Order;
 import org.shop.data.Proposal;
 import org.shop.data.User;
 import org.shop.repository.OrderRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class OrderServiceImpl implements OrderService {
 
-    @Autowired
+    @Resource(name = "orderRepository")
     private OrderRepository orderRepository;
     
-    @Autowired
+    @Resource(name = "itemService")
     private ItemService itemService;
 
     @Override
