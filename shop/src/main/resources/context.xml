@@ -7,6 +7,4 @@
 	
 	<import resource="classpath:service-config.xml"/>
 	
-	<import resource="classpath:data-initializer.xml"/>
-	
 </beans>
