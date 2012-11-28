@@ -8,6 +8,7 @@
 		<spring.version>3.0.7.RELEASE</spring.version>
 		<commons.collections.version>2.1.1</commons.collections.version>
 		<commons.beanutils.version>1.8.0</commons.beanutils.version>
+		<aspectj.version>1.6.9</aspectj.version>
 	</properties>
 	
 	<build>
