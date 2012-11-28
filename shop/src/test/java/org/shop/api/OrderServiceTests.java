@@ -1,51 +1,38 @@
 package org.shop.api;
 
-import static org.junit.Assert.*;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.shop.data.Product;
+import org.shop.data.Proposal;
+import org.shop.initializer.DataInitializer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({"classpath:context.xml", "classpath:data-initializer.xml"})
+@ContextConfiguration({"classpath:context.xml", "classpath:data-initializer.xml", "classpath:aspects.xml"})
 public class OrderServiceTests {
 
+    @Autowired
     OrderService orderService;
     
+    @Autowired
+    DataInitializer dataInitializer;
+    
+    @Autowired
+    ProductService productService;
+    
+    @Autowired
+    UserService userService;
+    
+    @Autowired
+    ProposalService proposalService;
+    
     @Test
-    public void testCreateOrderUserItemArray() {
-        fail("Not yet implemented");
-        //orderService.createOrder(user, items);
-    }
-
-    @Test
-    public void testCreateOrderUserProposalArray() {
-        fail("Not yet implemented");
-        //orderService.createOrder(user, proposals);
-    }
-
-    @Test
-    public void testGetOrderById() {
-        fail("Not yet implemented");
-        //orderService.getOrderById(id);
-    }
-
-    @Test
-    public void testUpdateOrder() {
-        fail("Not yet implemented");
-        //orderService.updateOrder(order);
-    }
-
-    @Test
-    public void testGetOrdersByUser() {
-        fail("Not yet implemented");
-        //orderService.getOrdersByUser(user);
-    }
-
-    @Test
-    public void testGetOrdersByUserId() {
-        fail("Not yet implemented");
-        //orderService.getOrdersByUserId(userId);
+    public void createOrder() {
+        Product galaxy = productService.getProductsByName("Samsung Galaxy Tab").get(0);
+        Proposal proposal = proposalService.getProposalsByProduct(galaxy).get(0);
+        
+        Long orderId = orderService.createOrder(userService.getUserById((long)1), proposal);
     }
 }
