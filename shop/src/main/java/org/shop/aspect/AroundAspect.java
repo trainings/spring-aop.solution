@@ -6,20 +6,12 @@ import org.aspectj.lang.annotation.Aspect;
 import org.springframework.core.Ordered;
 
 @Aspect
-public class AroundAspect implements Ordered {
+public class AroundAspect {
     
     @Around("execution(* org.shop.api.OrderService.createOrder(..))")
     public void logBefore(ProceedingJoinPoint joinPoint) throws Throwable {
         System.out.println(getClass().getSimpleName() + " before");
         joinPoint.proceed();
         System.out.println(getClass().getSimpleName() + " after");
-    }
-
-    /* (non-Javadoc)
-     * @see org.springframework.core.Ordered#getOrder()
-     */
-    @Override
-    public int getOrder() {
-        return 100;
     }
 }

@@ -2,6 +2,7 @@ package org.shop.api;
 
 import java.util.List;
 
+import org.shop.aspect.MyAnnotation;
 import org.shop.data.Item;
 import org.shop.data.Order;
 import org.shop.data.Proposal;
@@ -39,6 +40,7 @@ public interface OrderService {
      * @param proposals the proposals
      * @return the order id
      */
+    @MyAnnotation
     Long createOrder(User user, Proposal... proposals);
     
     /**

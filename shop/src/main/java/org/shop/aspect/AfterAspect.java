@@ -9,6 +9,6 @@ public class AfterAspect {
     
     @After("execution(* org.shop.api.OrderService.createOrder(..))")
     public void logBefore(JoinPoint joinPoint) {
-        System.out.println(getClass().getSimpleName() + joinPoint.getSignature());
+        System.out.println(getClass().getSimpleName());
     }
 }

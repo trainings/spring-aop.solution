@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 
 import org.shop.api.ItemService;
 import org.shop.api.OrderService;
+import org.shop.aspect.MyAnnotation;
 import org.shop.data.Item;
 import org.shop.data.Order;
 import org.shop.data.Proposal;
@@ -42,6 +43,7 @@ public class OrderServiceImpl implements OrderService {
         return orderId;
     }
     
+    @MyAnnotation
     public Long createOrder(User user, Proposal... proposals) {
         List<Item> items = new ArrayList<Item>();
         
