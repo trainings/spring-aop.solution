@@ -9,4 +9,5 @@
 	
 	<bean class="org.shop.aspect.LoggerAspect"/>
 	
+	<bean class="org.shop.aspect.AroundAspect"/>
 </beans>
