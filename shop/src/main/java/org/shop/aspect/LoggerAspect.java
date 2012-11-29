@@ -9,6 +9,6 @@ public class LoggerAspect {
 	
 	@Before("execution(* org.shop.api.OrderService.createOrder(..))")
 	public void logBefore(JoinPoint joinPoint) {
-		System.out.println("LoggerAspect: " + joinPoint.getSignature());
+		System.out.println(getClass().getSimpleName() + joinPoint.getSignature());
 	}
 }

@@ -10,9 +10,9 @@ public class AroundAspect implements Ordered {
     
     @Around("execution(* org.shop.api.OrderService.createOrder(..))")
     public void logBefore(ProceedingJoinPoint joinPoint) throws Throwable {
-        System.out.println(getClass().getCanonicalName() + " before");
+        System.out.println(getClass().getSimpleName() + " before");
         joinPoint.proceed();
-        System.out.println(getClass().getCanonicalName() + " after");
+        System.out.println(getClass().getSimpleName() + " after");
     }
 
     /* (non-Javadoc)

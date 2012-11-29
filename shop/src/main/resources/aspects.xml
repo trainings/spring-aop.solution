@@ -10,4 +10,8 @@
 	<bean class="org.shop.aspect.LoggerAspect"/>
 	
 	<bean class="org.shop.aspect.AroundAspect"/>
+	
+	<bean class="org.shop.aspect.AfterAspect"/>
+	
+	<bean class="org.shop.aspect.BeforeAspect"/>
 </beans>
